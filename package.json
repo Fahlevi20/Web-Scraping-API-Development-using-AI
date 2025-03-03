@@ -1,0 +1,14 @@
+{
+  "name": "web-scraping-aPI-development-using-AI",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Fahlevi20/Web-Scraping-API-Development-using-AI.git",
+  "author": "fahlevi20 <rozakalfi@gmal.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.8.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "puppeteer": "^24.3.0"
+  }
+}
