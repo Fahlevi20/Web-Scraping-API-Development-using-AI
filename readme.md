@@ -1,126 +1,79 @@
-# eBay Scraper API with AI Enhancement
+# Web Scraping API Development using AI
 
-This project is a web scraping API that extracts product information from eBay search results and uses AI to enhance the data. The API scrapes product listings for a given keyword, including product names, prices, and descriptions, and returns the results in JSON format.
+## 📌 Overview
+This project is a web scraping API built using **Node.js**, **Express**, **Puppeteer**, and **OpenAI**. It scrapes product data from e-commerce websites, summarizes descriptions using OpenAI, and allows users to download the scraped data as a JSON file.
 
-## Features
+## 🚀 Features
+- ✅ Scrape product data from eBay (title, price, link, and description)
+- ✅ Summarize product descriptions using OpenAI's GPT-4o
+- ✅ Save scraped data to a JSON file
+- ✅ Download the JSON file via an API endpoint
 
-- 🔍 Scrapes eBay product listings based on search keywords
-- 📄 Extracts product name, price, and detailed description from product pages
-- 🤖 Uses AI to enhance product data with category classification and summary
-- 📊 Handles pagination to scrape multiple pages of results
-- 🚀 Returns well-structured JSON data
+## 📦 Installation
 
-## Tech Stack
-
-- **Backend**: Node.js with Express.js
-- **Scraping**: Puppeteer for browser automation
-- **AI Integration**: OpenAI API (or Deepseek API)
-- **Error Handling**: Robust error handling and rate limiting
-
-## Installation
-
-1. Clone this repository:
-   ```
-   git clone https://github.com/your-username/ebay-scraper.git
-   cd ebay-scraper
-   ```
-
-2. Install dependencies:
-   ```
-   npm install or yarn install
-   ```
-
-3. Create a `.env` file in the root directory with the following contents:
-   ```
-   PORT=3000
-   OPENAI_API_KEY=your_openai_api_key_here
-   ```
-
-4. Start the server:
-   ```
-   y start
-   ```
-
-## API Usage
-
-### Endpoint: GET `/api/scrape`
-
-Scrapes eBay product listings for a given keyword.
-
-#### Query Parameters:
-
-- `keyword` (optional): Search term for eBay products (default: 'nike')
-- `pages` (optional): Number of pages to scrape (default: 1)
-
-#### Example Request:
-
-```
-GET http://localhost:3000/api/scrape?keyword=adidas&pages=2
+### 1️⃣ Clone the repository:
+```sh
+git clone https://github.com/your-repo/web-scraping-api.git
+cd web-scraping-api
 ```
 
-#### Example Response:
-
-```json
-{
-  "success": true,
-  "query": {
-    "keyword": "adidas",
-    "pages": 2
-  },
-  "count": 48,
-  "products": [
-    {
-      "title": "Adidas Ultraboost 21 Men's Running Shoes",
-      "price": "$120.00",
-      "url": "https://www.ebay.com/itm/123456789",
-      "description": "Brand new Adidas Ultraboost 21 running shoes. Features Primeknit upper and Boost cushioning for maximum comfort and performance.",
-      "enhancedData": {
-        "category": "Athletic Shoes",
-        "condition": "New",
-        "summary": "New Adidas Ultraboost 21 men's running shoes with Primeknit upper and Boost cushioning technology."
-      }
-    },
-    // More products...
-  ]
-}
+### 2️⃣ Install dependencies:
+```sh
+npm install
 ```
 
-## Error Handling
+### 3️⃣ Set up environment variables:
+Create a `.env` file and add your OpenAI API key:
+```
+OPENAI_API_KEY=your_openai_api_key
+PORT=3000
+```
 
-The API includes robust error handling:
+## ▶ Usage
 
-- If a product doesn't have a price or description, it returns '-'
-- If scraping fails for a specific product, it continues with others
-- If the AI enhancement fails, it returns the original data without enhancements
+### **1️⃣ Start the server**
+```sh
+node main.js
+```
+The server will run on `http://localhost:3000`
 
-## AI Integration
+### **2️⃣ Scrape product data**
+Send a GET request to:
+```sh
+http://localhost:3000/scrape?url=your_target_url
+```
+Example:
+```sh
+http://localhost:3000/scrape?url=https://www.ebay.com/sch/i.html?_nkw=dell+g+15
+```
 
-The API uses AI (OpenAI's GPT model or Deepseek) to:
+**Response:** JSON with product details.
 
-1. Categorize products based on title and description
-2. Determine product condition from description
-3. Generate concise product summaries
+### **3️⃣ Download scraped data**
+Send a GET request to:
+```sh
+http://localhost:3000/download
+```
+This will return a JSON file (`products.json`).
 
-To switch from OpenAI to Deepseek, modify the `aiService.js` file with the appropriate Deepseek API implementation.
+## 🛠 API Endpoints
+| Method | Endpoint          | Description                        |
+|--------|------------------|------------------------------------|
+| GET    | `/scrape?url=URL`  | Scrapes product data from the given URL |
+| GET    | `/download`       | Downloads the scraped data as JSON |
 
-## Rate Limiting and Ethical Scraping
+## ⚡ Technologies Used
+- **Node.js** - JavaScript runtime
+- **Express.js** - Backend framework
+- **Puppeteer** - Web scraping
+- **OpenAI API** - Text summarization
+- **dotenv** - Manage environment variables
 
-The scraper implements:
+## 📝 Notes
+- Ensure you have a valid **OpenAI API key** before running the project.
+- Modify the **Puppeteer selectors** if scraping another e-commerce site.
+- Scraping should be done ethically and in compliance with the website's **robots.txt** policies.
 
-- Random delays between requests to respect eBay's servers
-- User-agent headers to identify the scraper
-- Error handling for rate limiting responses
+## 📜 License
+This project is open-source and available under the MIT License.
 
-## Extending the Project
-
-### Add More AI Features
-
-You can extend the AI functionality by modifying the `enhanceProductData` function in `aiService.js`.
-
-### Add a Frontend
-
-You can create a simple frontend to visualize the scraped data using React, Vue, or any other frontend framework.
-
-## License
-
-MIT
