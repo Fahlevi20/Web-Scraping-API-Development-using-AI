@@ -19,11 +19,7 @@ cd web-scraping-api
 
 ### 2️⃣ Install dependencies:
 ```sh
-<<<<<<< HEAD
 npm install or yarn install
-=======
-npm install
->>>>>>> deff07caceb8d6c7f59ec8f8448e641189b77906
 ```
 
 ### 3️⃣ Set up environment variables:
@@ -37,11 +33,7 @@ PORT=3000
 
 ### **1️⃣ Start the server**
 ```sh
-<<<<<<< HEAD
 yarn node main.js
-=======
-node main.js
->>>>>>> deff07caceb8d6c7f59ec8f8448e641189b77906
 ```
 The server will run on `http://localhost:3000`
 
