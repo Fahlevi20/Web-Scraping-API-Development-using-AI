@@ -9,5 +9,9 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
+    commit-message:
+      prefix: chore
+    labels: []      
     assignees:
       - "fahlevi20"
+    
