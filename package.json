@@ -10,7 +10,7 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "openai": "^4.89.0",
-    "puppeteer": "^24.4.0"
+    "puppeteer": "^24.5.0"
   },
   "scripts": {
     "start": "node src/main.js"
