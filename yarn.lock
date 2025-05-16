@@ -854,10 +854,10 @@ once@^1.3.1, once@^1.4.0:
   dependencies:
     wrappy "1"
 
-openai@^4.93.0:
-  version "4.93.0"
-  resolved "https://registry.yarnpkg.com/openai/-/openai-4.93.0.tgz#12e74a5bff0b15fdb12e523232af1a8d5ee11e3f"
-  integrity sha512-2kONcISbThKLfm7T9paVzg+QCE1FOZtNMMUfXyXckUAoXRRS/mTP89JSDHPMp8uM5s0bz28RISbvQjArD6mgUQ==
+openai@^4.99.0:
+  version "4.99.0"
+  resolved "https://registry.yarnpkg.com/openai/-/openai-4.99.0.tgz#11fd7861f6156ac31258bee7e446d8a0a16627f1"
+  integrity sha512-E2bd6ghsKF6iV6B4vuhREtdpeB/8dNUnWcPIt5VmnM019/mXxOdqisnIcn4e1zWt1H8BpeMY2HwKJ3UIin6baA==
   dependencies:
     "@types/node" "^18.11.18"
     "@types/node-fetch" "^2.6.4"
